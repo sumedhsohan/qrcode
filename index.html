@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+        }
+        .container {
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            color: black;
+        }
+        .student-info {
+            margin-bottom: 20px;
+        }
+        canvas {
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Student Dashboard</h2>
+        <div class="student-info">
+            <p><strong>Name:</strong> John Doe</p>
+            <p><strong>Roll No:</strong> 12345</p>
+            <p><strong>Class:</strong> 10th Grade</p>
+            <p><strong>Course:</strong> Computer Science</p>
+            <p><strong>Address:</strong> 123 Main St, City, Country</p>
+            <p><strong>Skills:</strong> Python, JavaScript, HTML, CSS</p>
+            <p><strong>Programming Languages Known:</strong> 4</p>
+            <p><strong>Contact:</strong> +1234567890</p>
+        </div>
+        
+        <h3>Attendance Overview</h3>
+        <canvas id="attendanceChart"></canvas>
+    </div>
+    
+    <script>
+        const ctx = document.getElementById('attendanceChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Attendance (%)',
+                    data: [95, 87, 90, 80, 92, 88],
+                    backgroundColor: 'rgba(54, 162, 235, 0.6)'
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
